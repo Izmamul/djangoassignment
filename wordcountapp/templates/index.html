@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Word Count</title>
+
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    
+.header{
+  border: 2px  solid linear-gradient(90deg ,rgba(2,0,36,1));
+  text-align: center;
+  background:linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(98,33,196,0.9836309523809523) 44%, rgba(0,212,255,1) 100%);
+  color:white;
+  height:10vh;
+
+}
+.formcontainer{
+  border: 1px solid linear-gradient(90deg, rgba(2,0,36,1));
+  text-align: center;
+  width: 100vw;
+  height: 20vh;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(2,67,240,0.938813025210084) 50%, rgba(0,212,255,1) 100%);
+  color:white;
+}
+
+
+.btn{
+    background-color: #bfe931;
+    border: none;
+    display: flex;
+    margin-left: 48%;
+    margin-top: 20px;
+    font-size: 20px;
+    border-radius:5px;
+    color:black;
+    box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+    
+  
+ 
+}
+.btn:hover{
+    background-color:#002ead;
+    transition: 0.7s;
+}
+
+  </style>
+
+</head>
+<body>
+  <div class="header">
+    <h1>Word Counter</h1>
+  </div>
+
+  <div class="formcontainer">
+  <form method="POST" action="{% url 'wordcount' %}" class="formdata">
+    {% csrf_token %}
+    <label for="url">Enter url Link</label>
+    <input type="text" name="url" value="{{ url }}">
+    <button type="submit" class="btn">Count Word</button>
+  </form>
+</div>
+</body>
+</html>
